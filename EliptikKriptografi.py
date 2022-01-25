@@ -55,8 +55,9 @@ class EliptikEgri:
         x3 = self.eksiltModp(u * u - x1 - x2)
         y3 = self.eksiltModp(-u * x3 - v)
 
+#Gerçekleştirilen binary operasyonunun p1 ve p2 nokataları sonucu
         return (x3, y3)
-    
+#Gerçekleştirilen binary operasyonun brileşim özelliğini kontrol etmek için gereken fonksiyon
     def testBirlesim(self):
         n = len(self.noktalar)
         for i in range (n):
@@ -65,8 +66,8 @@ class EliptikEgri:
                     P = self.ekleme(self.noktalar[i], self.ekleme(self.noktalar[j], self.noktalar[k]))
                     Q = self.ekleme(self.ekleme(self.noktalar[i], self.noktalar[j]), self.noktalar[k])
                     if P != Q:
-                        return ("Yok")
-        return ("Var")
+                        return ("Yok")#false
+        return ("Var")#true
             
     def noktaSayısı(self):
         return len(self.noktalar)
@@ -83,7 +84,7 @@ class EliptikEgri:
         
 ####################### Yardımcı Fonksiyonlar ##########################
         
-        
+        #Modp'nin 0 ile p-1 arasında olması için eksiltme fonksiyonu
     def eksiltModp(self,x):
         return x % self.p 
         
