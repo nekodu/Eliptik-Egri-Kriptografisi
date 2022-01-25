@@ -46,10 +46,11 @@ class EliptikEgri:
             return SNSZ_NOKTA
 
         if self.denkModp(x1, x2) and self.denkModp(y1, y2):
+            # u = lambda işareti ve p1 ve p2 arasındaki eğim
             u = self.eksiltModp((3 * x1 * x1 + self.a) * self.tersModp(2 * y1))
         else:
             u = self.eksiltModp((y1 - y2) * self.tersModp(x1 - x2))
-
+            
         v = self.eksiltModp(y1 - u * x1)
         x3 = self.eksiltModp(u * u - x1 - x2)
         y3 = self.eksiltModp(-u * x3 - v)
@@ -64,8 +65,8 @@ class EliptikEgri:
                     P = self.ekleme(self.noktalar[i], self.ekleme(self.noktalar[j], self.noktalar[k]))
                     Q = self.ekleme(self.ekleme(self.noktalar[i], self.noktalar[j]), self.noktalar[k])
                     if P != Q:
-                        return False
-        return True
+                        return ("Yok")
+        return ("Var")
             
     def noktaSayısı(self):
         return len(self.noktalar)
