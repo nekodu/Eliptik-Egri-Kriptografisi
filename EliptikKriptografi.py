@@ -4,6 +4,13 @@ Created on Mon Jan 24 23:43:07 2022
 
 @author: nekodu
 """
+
+
+
+# For-loop her nekadar küçük asal sayılar için yazılabilir olsada, büyük asal sayıları bu looptan geçirmek çook uzun 
+#sürüyor !!!!!!!
+
+
 import math
 
 
@@ -31,6 +38,10 @@ class EliptikEgri:
                 if self.denk_modp(y * y, x * x * x + self.a * x + self.b):
                     #Bir çözüm bulunduğunda noktalar listesine ekleniyor.
                     self.noktalar.append((x,y))
+                    
+                    # Yukarıdaki işlemde küçük asal sayılar listeye sığıyor fakat büyük asal sayılar geldiğinde
+                    #bu kadar fazla sayıyı depolamak mümkün olmuyor.Dünyadaki toplam veri 4 * 10^22 eliptik eğrideki
+                    #nokta sayısı 1.5 * 10^69
     
     
     def ekleme(self,P1,P2):
